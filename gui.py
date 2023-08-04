@@ -484,7 +484,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         else:
             if winner == 0:
 
-                self.msg.setText("\n\n\nPlayer 2 is Winner ")
+                self.msg.setText("\n\n\nIA is Winner ")
             elif winner == 1:
                 self.msg.setText("\n\n\nPlayer 1 is Winner ")
             else:
