@@ -30,25 +30,7 @@ def is_empty(current_state, current_player_start_index):
 
 
 def do_step(current_state, pocket_number):
-    """
-    Aya
-    move stones from pocket_number to the next pockets handling:
-     1. the player mancala in unstealing mode
-     2. handles if stealing mode is on.
-     3. set the next player.
-     player 0 control the first 8 pockets
-     player 1 control the second 8 pockets
-    :param pocket_number: from 0 to 5
-    :param current_state: {
-        "player": 0,
-        "mankala_state":[2, 4, 0, 2, 5, 0],
-        "last_pocket" : 0
-    }
-    :return: new_state: {
-        "player": 1,
-        "mankala_state":[0, 5, 1, 2, 5, 0]
-    }
-    """
+
     # know Number of stones
     n_stones = 0
     current_state = deepcopy(current_state)
@@ -107,39 +89,7 @@ def do_step(current_state, pocket_number):
 
 
 def calculate_tree(current_state, depth):
-    """
-    belal
-    calculate depth number of future steps, and also calculating current score
-    :param current_state: {
-        "player": 0,
-        "score": 2,
-        "mancala_state": [4, 4, 4, 4, 4, 4, 0,
-                          4, 4, 4, 4, 4, 4, 0],
-        "steps": []
-    }
-    :param depth: number of steps to be planned
-    :return: {
-        "player": 0,
-        "score": 2,
-        "mancala_state":[2, 4, 0, 2, 5, 0],
-        "steps": [
-            {
-                "player": 0,
-                "score": 2,
-                "mancala_state":[2, 4, 0, 2, 5, 0],
-                "steps": [
-                ]
-            },
-            {
-                "player": 0,
-                "score": 2,
-                "mancala_state":[2, 4, 2, 2, 5, 0],
-                "steps": [
-                ]
-            }
-        ]
-    }
-    """
+
     if depth == 0:
         return current_state
     output_state = deepcopy(current_state)
@@ -188,19 +138,7 @@ def min_max(tree, alpha = -10000 , beta= 10000 ):
 
 
 def AI_play(current_state, depth=7):
-    """
-    Esraa
-    1. calculate tree
-    2. apply min max algorithm
-    3. do_step
-    :param current_state:
-    :return: new_state {
-        "player": 0,
-        "score": 2,
-        "mancala_state":[4, 4, 0, 4, 4, 0],
-        "steps": []
-    }
-    """
+
     tree = calculate_tree(current_state, depth)
     min_max_output = min_max(tree)
     try:
@@ -212,12 +150,7 @@ def AI_play(current_state, depth=7):
 
 
 def winner(current_state):
-    """
-    Esraa
-    check if the game is finished by looking at each user six pockets (if all is empty then the game is finished)
-    :param current_state:
-    :return: 0 for player0, 1 for player1, None if the game is still running
-    """
+
     for i in range(len(current_state['mancala_state'])):
         if i == 6 or i == 13:
             continue

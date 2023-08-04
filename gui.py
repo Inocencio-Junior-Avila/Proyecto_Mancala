@@ -517,7 +517,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.mankla2.setText(_translate("MainWindow", "0"))
         self.mankla1.setText(_translate("MainWindow", "0"))
         self.player2_lb.setText(_translate("MainWindow", "Player 1"))
-        self.player1_lb.setText(_translate("MainWindow", "AI"))
+        self.player1_lb.setText(_translate("MainWindow", "IA"))
         self.start_bt.setText(_translate("MainWindow", "Empezar"))
         self.stealing_lb.setText(_translate("MainWindow", "robando"))
         self.load_bt.setText(_translate("MainWindow", "Carga"))
